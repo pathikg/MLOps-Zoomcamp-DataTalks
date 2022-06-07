@@ -14,7 +14,7 @@
    (This step takes around 30 mins so don't worry just stay patient and have your coffee)  
    
    After this you should be able to see this :  
-   ![WSL V2](/week-01-introduction/WSL_V2.jpeg)  
+   ![WSL V2](/week-01-introduction/images/WSL_V2.jpeg)  
    
 ### Install Conda/MiniConda as per your choice  
    For Conda (https://www.anaconda.com/products/distribution)
@@ -59,7 +59,7 @@
    export PATH="${HOME}/soft:${PATH}"
    ```
    
-   ![Soft Path](/week-01-introduction/soft_path.jpg) 
+   ![Soft Path](/week-01-introduction/images/soft_path.jpg) 
    
    Save it and run the following to make sure the changes are applied:
    ```bash
@@ -69,7 +69,7 @@
    Just follow this : https://docs.docker.com/desktop/windows/wsl/  
    ;)
 ### Test the setup  
-   ![test](/week-01-introduction/test_setup.jpg)  
+   ![test](/week-01-introduction/images/test_setup.jpg)  
    
 ## For Linux 
     Everything same as the Windows installation from Step 3 
