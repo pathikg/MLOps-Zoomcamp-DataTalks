@@ -6,3 +6,6 @@ My Notes and homework of [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops
     1. [MLOps Introduction](/week-01-introduction/MLOps-Introduction.md)
     2. [Local Setup](/week-01-introduction/Setup.md)  
     3. [Maturity Model](week-01-introduction/MaturityModel.md)
+
+2. [Week 2](/week-02-experiment-tracking/)
+    1. [Experiment Tracking](/week-02-experiment-tracking/experiment-tracking-intro.md)
