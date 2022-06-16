@@ -10,3 +10,4 @@ My Notes and homework of [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops
 2. [Week 2](/week-02-experiment-tracking/)
     1. [Experiment Tracking](/week-02-experiment-tracking/experiment-tracking-intro.md)
     2. [MLFlow introduction](/week-02-experiment-tracking/mlflow-experiment-tracking-intro.ipynb)
+    3. [Model Mangement](/week-02-experiment-tracking/Model Management.ipynb)
