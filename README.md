@@ -12,3 +12,6 @@ My Notes and homework of [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops
 2. [MLFlow introduction](/week-02-experiment-tracking/mlflow-experiment-tracking-intro.ipynb)
 3. [Model Management](</week-02-experiment-tracking/Model Management.ipynb>)
 4. [Model Registry](</week-02-experiment-tracking/Model Registry.ipynb>)
+
+[Week 3](/week-03-orchestration/)   
+1. [Workflow orchestrationn introduction](/week-03-orchestration/orchestration-intro.md)
