@@ -21,6 +21,7 @@ You may ask what could go wrong in such a beautiful ML pipeline ?
 * Well data was almost preprocessed properly but mistakenly new intern forgot to remove `target` column in our data 😡, Leading in failure of our Machine learning model
 * Since Model build failed, no model was registered into our Model Registry so no model for deployment 😭
 * Well we managed to solve all the problems and deployed our model using a `Flask API` but Ooopssss ..... due to some reason API went down 💤
+* That guy forogot to re-run the pipeline and model's performance was decreased due to [Model Drift](https://www.ibm.com/cloud/watson-studio/drift#:~:text=Model%20drift%20refers%20to%20the,over%20time%20or%20sometimes%20suddenly.)
 
 Well there's a lot of such scenarios which one has to consider to keep our pipeline intact and if something fails we manually have to correct all of that which is 
 arggghh bit of frustrating and time consuming 
