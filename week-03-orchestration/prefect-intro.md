@@ -35,7 +35,9 @@ Prefect has two main components flow and task,
 Flows are the most basic Prefect object. They are containers for workflow logic and allow users to interact with and reason about the state of their workflows  
 **In short, it contains the whole logic of our code/workflow**
 
-e.g. In our use case, we can include the whole logic in a single function say `main()`
+![spongbob-flow](https://c.tenor.com/JTYp4Pou6C0AAAAM/flow-dance.gif)
+
+e.g. In our use case, we can include the whole logic in a single function say `main()` and then adding a decorator `@flow` 
 
 ```python
 @flow
@@ -53,9 +55,49 @@ def main(train_path: str = "./data/green_tripdata_2021-01.parquet",
  ```
 
 and we can simply call our `main()` function when the script runs
+
+#### Running the flow 
+
 Let's see what do we see in the output :
 
 ![flow_main_op](./images/flow_main_op.jpg)
 
+With the model training, we also get to see that **Prefect** create a **flow run** named 'powerful-ibis' for flow 'main'   
+btw we can also specify a **name** to our flow run by passing `name` as an argument in `@flow()`  
+
+(I know doesn't seem that interesting at start but something's hiding beneath it ;) which we will explore sooon....)
 
 ### task
+
+A task is a function that represents a discrete unit of work in a Prefect workflow.
+Tasks are functions: they can take inputs, perform work, and return an output. A Prefect task can do almost anything a Python function can do.
+
+![spongebob-doing-task](https://c.tenor.com/qCtzcH-AYdcAAAAC/work-work-work-working-out.gif)
+
+e.g. we can add `@task` to our function `read_dataframe`
+
+```python
+@task
+def add_features(df_train, df_val):
+   ...
+   return X_train, X_val, y_train, y_val, dv
+```
+
+Each task calls return a `PrefectFuture`, which represents the status of a task executing in a task runner
+
+If we have multiple variables in our return statement then to get the results, we need to call method `.result()` on our task call 
+i.e. 
+`X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val).result()`
+
+Similarly we can assign these tasks to our other functions as well
+
+#### Running the flow
+
+This time if we run then flow then,
+
+![tasks_op.jpg](./images/tasks_op.jpg)
+
+In the output we can see that, we get some information about `tasks` like when our **task run** started and ended in the **flow run**...  
+(we can specify name to each of the tasks by passing `name` as a parameter in the decorator `@task`)
+
+
