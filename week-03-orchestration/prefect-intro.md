@@ -155,4 +155,14 @@ e.g. we can also see flow of our data from one task to another
 Pretty Cool 👏
 
 
- 
+# Bonus
+
+Prefect also does some Parameter Type checking which you can find [here](https://orion-docs.prefect.io/concepts/flows/#parameters)
+Do checkout the [documentation](https://orion-docs.prefect.io/) for detailed information
+
+
+Find the reformatted code in [prefect_flow.py](./prefect_flow.py)
+
+# Bye Bye.... 👋
+
+If you've any doubts or any suggestions, feel free to contact me on twitter [@PathikGhugare](https://twitter.com/PathikGhugare)
