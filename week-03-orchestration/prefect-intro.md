@@ -100,4 +100,59 @@ This time if we run then flow then,
 In the output we can see that, we get some information about `tasks` like when our **task run** started and ended in the **flow run**...  
 (we can specify name to each of the tasks by passing `name` as a parameter in the decorator `@task`)
 
+### Prefect UI
 
+The Prefect UI provides an overview of all of your flows
+
+To access the UI,
+we can simply do :
+`prefect orion start`
+
+![prefect_orion_start](./images/prefect_orion_start.jpg)
+
+which setups a dashboard at address : `http://127.0.0.1:4200/`
+
+![prefect_ui](./images/prefect_ui.jpg)
+
+NICE !
+BUT 
+
+![wait a minute](https://c.tenor.com/IJwsfw7ToiQAAAAd/wait-what.gif)
+
+HOW THA HECK `main` CAME INTO `Flow` ?
+We never specified anything to keep track of our flows right ? except adding `@flow` and `@task` 
+That's the beauty of `Prefect` that it automatically keeps track of everything about our flows in the backend... 🐱
+
+
+#### Flows runs
+
+Let's explore what's hidden inside `Flow runs` 
+
+![select_flow_run](./images/select_flow_run.jpg)
+
+Selecting 2nd flow run, 
+
+![flow_run_ui](./images/flow_run_ui.jpg)
+
+as we can see we get to see a lot of information about our flow,  
+e.g.  
+* status
+* tags
+* timeline
+* start and end time
+* logs
+* task runs
+* radar map
+
+Wooo what's this `radar map` ?  
+Let's click ...   
+
+![radar_map](./images/radar_map_ui.jpg)
+
+Wooh, now we can have a look at our workflow visually ...   
+e.g. we can also see flow of our data from one task to another  
+
+Pretty Cool 👏
+
+
+ 
