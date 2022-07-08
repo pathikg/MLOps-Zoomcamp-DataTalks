@@ -29,7 +29,7 @@ and clone our GitHub Repository and then pass that image to get the predictions 
 i.e. We have to provide a way for a regular person to use our model which can be obtained by storing our model in the cloud and loading it in the backend then 
 maybe taking MRI scans from the users as a input on the website and passing it into our model thereby showing the predictions back on the frontend
 
-# Modes of model deployment
+# Modes of model deployment 
 
 * Batch/Offline mode : when we require model to do tasks at regular intervals
 * Online : when we require model to be running all the time
@@ -41,6 +41,8 @@ maybe taking MRI scans from the users as a input on the website and passing it i
  
 In this mode, we only need our model to be used on regular intervals of time (e.g. hourly, monthly, weekly, etc.)
 Model is usually train on a batch of data
+
+![schedule](https://images.gr-assets.com/hostedimages/1562472543ra/27781652.gif)
 
 e.g.  
 Company forecasting sales for next month at the end of current month  
@@ -57,6 +59,8 @@ This technique is used a lot in marketing use cases such as **Customer churn**
 
 In online mode, we need our model running all the time
 
+![sleepy jim](https://c.tenor.com/MXgdCHBpzg8AAAAC/the-office-john-krasinski.gif)
+
 e.g.  
 Brain tumour detection model, which needs to be running all the time since we can have doctors all around the world using it anytime 
 
@@ -67,6 +71,8 @@ Overall flow in this mode goes like this :
 ## Online : Streaming
 
 In this model, we have stream of events and model service is listening to those events to react respectively
+
+![idk what to write ;)](https://www.tinypulse.com/hubfs/Recognize-Daily-Wins.gif)
 
 e.g.
 You booked a cab, then before booking (event 1) you got to know "estimated fair" of trip which could be done by one model then as the ride started (event 2) another model triggered which calculates "trip duration", and so on ... 
