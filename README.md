@@ -14,4 +14,5 @@ My Notes of [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp)
 4. [Model Registry](</week-02-experiment-tracking/Model Registry.ipynb>)
 
 [Week 3](/week-03-orchestration/)   
-1. [Workflow orchestrationn introduction](/week-03-orchestration/orchestration-intro.md)
+1. [Workflow orchestration introduction](/week-03-orchestration/orchestration-intro.md)
+2. [Prefect](/week-03-orchestration/prefect-intro.md)
