@@ -33,7 +33,7 @@ maybe taking MRI scans from the users as a input on the website and passing it i
 
 * Batch/Offline mode : when we require model to do tasks at regular intervals
 * Online : when we require model to be running all the time
-  * Web service : model can be available as an API where we can send an http request and get the predictions back in the response e.g. image prediction  
-  * Streaming : when there is a stream of events and model service is listening to those events to react respectively e.g. realtime object detection task
+  * Web service : model can be available as an API where we can send an http request and get the predictions back in the response
+  * Streaming : when there is a stream of events and model service is listening to those events to react respectively
   
  
