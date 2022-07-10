@@ -16,3 +16,7 @@ My Notes of [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp)
 [Week 3](/week-03-orchestration/)   
 1. [Workflow orchestration introduction](/week-03-orchestration/orchestration-intro.md)
 2. [Prefect](/week-03-orchestration/prefect-intro.md)
+
+[Week 4](/week-04-deployment/)   
+1. [Model deployment introduction](week-04-deployment/deployment.md)
+2. [Deployment as a web service](week-04-deployment/web-service/deployment-flask-docker.md)
