@@ -2,7 +2,7 @@
 
 In this section, we will see how we can deploy a machine learning model into production as a web service.
 
->Note : I'll be doing this locally as I don't have AWS account because my Rupay card is not being accepted :(
+>Note : I'll be doing this locally as I don't have an AWS account because my Rupay card is not accepted :(
 
 # Let's start 🚀
 
