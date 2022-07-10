@@ -106,19 +106,19 @@ from utils import *
 # define our app
 app = Flask("nyc-taxi-duration")
 
+# load model and vectorizer
+dv, model = load_model("lin_reg.bin")
+
 # /predict-duration endpoint to talk with our API
 @app.route("/predict-duration", methods=["GET"])
-def predict_duration(request):
-    """ Returns JSON response of predicted duration for the data obtained from the body of incoming request
-    """
+def predict_duration():
+    """Returns JSON response of predicted duration for the data obtained from the body of incoming request"""
     ride = request.get_json()
 
     features = prepare_features(ride)
-    pred = predict(features)
+    pred = predict(features, dv, model)
 
-    result = {
-        'duration': pred
-    }
+    result = {"duration": pred}
     return jsonify(result)
 
 if __name__ == "__main__":
@@ -130,3 +130,79 @@ Inside the function, it grabs the `json` data we sent via http `request` and usi
 `app.run` runs our server on `localhost` at port `9696`
 
 This code can be found in the file : [`app.py`](app.py)
+
+
+### Backend
+
+Well we don't have a full fledged app to have a backend that can send https request to our API but what we can do is create a script in python which sends the request!
+
+Create a file `test.py` and paste the following script into it
+
+```python
+import requests
+
+ride = {
+    "PULocationID": 10,
+    "DOLocationID": 50,
+    "trip_distance": 40
+}
+
+url = 'http://localhost:9696/predict'
+response = requests.get(url, json=ride)
+print(response.json())
+``` 
+
+Script is pretty straight-forward...
+
+>Note: run this script outside your virtual environment as we haven't installed requests library in our environment
+
+### Lets test the server
+
+Run the server using,
+`$ python app.py`
+![image](https://user-images.githubusercontent.com/55437218/178159988-71ca2944-4b35-44ae-9084-237e60c57111.png)
+
+Now let's try our test script to see if our API actually works or not
+
+![response output](https://user-images.githubusercontent.com/55437218/178160159-e174f798-8087-443b-97f0-45ec5715e963.png)
+
+BOOM 🎆
+
+![BOOM](https://media1.giphy.com/media/l3q2zxUCPX4rmO8ZG/200w.gif)
+
+### Gunicorn server
+
+If you look closely, when we start our Flask API it says:
+![flask warning](https://user-images.githubusercontent.com/55437218/178160360-86b6eb47-fc5c-40d2-8d29-b6dced523e60.png)
+
+oof so what to do in production then?
+WE USE gunicorn server !
+
+It is a Python WSGI Server for UNIX
+
+So install it with
+```bash
+$ pipenv install gunicorn
+```
+
+Remove `if __main__` part from our `app.py`
+and run the gunicorn server by simply doing : 
+
+```bash
+gunicorn --bind=0.0.0.0:9696 app:app
+```
+This basically says gunicorn server to setup a server at address `0.0.0.0` and port `9696` and in the file `app` look for `app` (Flask app)
+
+Thus we've a gunicorn server running :
+![gunicorn server](https://user-images.githubusercontent.com/55437218/178160516-d5a3598f-d120-432c-acb0-23ff9a9c6676.png)
+
+## THE END ? NO XD
+
+So we've successfully created 
+* Created a virtual environment with pipenv
+* Created a Flask API 
+* Tested API with http request
+* Used gunicorn to run our API in production mode
+
+There's a one problem tho... 🤔
+will discuss it later
