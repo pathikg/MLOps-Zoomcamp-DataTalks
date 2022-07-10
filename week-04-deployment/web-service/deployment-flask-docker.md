@@ -71,3 +71,62 @@ which we had trained last time in week-02 of experiment tracking
 Flask is a web application framework in python which can be used to create APIs. 
 
 First we will create some utility functions to help us load our model and prepare the data coming from the http request
+
+```python
+import pickle
+
+# loading model with dict vectorizer
+def load_model(path='lin_reg.bin'):
+    with open(path, 'rb') as f_in:
+        (dv, model) = pickle.load(f_in)
+        return (dv, model)
+
+# from ride(dictionary) we take only the features which we used to train our model
+def prepare_features(ride):
+    features = {}
+    features['PU_DO'] = '%s_%s' % (ride['PULocationID'], ride['DOLocationID'])
+    features['trip_distance'] = ride['trip_distance']
+    return features
+
+# function to predict prepared features
+def predict(features, dv, model):
+    X = dv.transform(features)
+    preds = model.predict(X)
+    return float(preds[0])
+```
+
+This code can be found in the file : [`utils.py`](utils.py)
+
+Now to crate our api, we will create a file nameed `app.py`
+
+```python
+from flask import Flask, request, jsonify
+from utils import *
+
+# define our app
+app = Flask("nyc-taxi-duration")
+
+# /predict-duration endpoint to talk with our API
+@app.route("/predict-duration", methods=["GET"])
+def predict_duration(request):
+    """ Returns JSON response of predicted duration for the data obtained from the body of incoming request
+    """
+    ride = request.get_json()
+
+    features = prepare_features(ride)
+    pred = predict(features)
+
+    result = {
+        'duration': pred
+    }
+    return jsonify(result)
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=9696)
+```
+
+So what this is does is, whenever we send a `GET` request to our API at the endpoint `/predict-duration` it performs the function `predict_duration()`  
+Inside the function, it grabs the `json` data we sent via http `request` and using the utility functions we made earlier it generates a JSONfied `response`.  
+`app.run` runs our server on `localhost` at port `9696`
+
+This code can be found in the file : [`app.py`](app.py)
