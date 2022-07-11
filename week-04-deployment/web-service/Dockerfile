@@ -9,7 +9,7 @@ COPY [ "Pipfile", "Pipfile.lock", "./" ]
 
 RUN pipenv install --system --deploy
 
-COPY [ "app.py", "lin_reg.bin", "./" ]
+COPY [ "app.py", "utils.py", "lin_reg.bin", "./" ]
 
 EXPOSE 9696
 
