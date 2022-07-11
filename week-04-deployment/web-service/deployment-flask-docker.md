@@ -1,4 +1,4 @@
-# Deployment
+# Deployment : Web service 👔
 
 In this section, we will see how we can deploy a machine learning model into production as a web service.
 
