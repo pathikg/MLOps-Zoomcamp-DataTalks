@@ -222,4 +222,11 @@ Well that's why we've
 
 # Dockerizing API 
 
+In next step, we will wrap our web API inside docker container which will act as a isolated environment for our API to run.
+
+![docker api diagram](https://user-images.githubusercontent.com/55437218/178342671-c3836c44-c0cd-4a09-890d-bd76b2aa6ab2.png)
+
+Make sure docker service is available at your system. You can checkout my guide on [Setup](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-01-introduction/Setup.md) for Windows machine.
+
+
 
