@@ -306,12 +306,14 @@ docker build -t ride-duration-prediction-service:v1 .
 ```
 
 You'll see something like this :
+![docker build output](https://user-images.githubusercontent.com/55437218/178354440-dd77607d-2553-45ec-a93f-2afaec4f103b.png)
 
 
 You can confirm your build by doing :
 ```bash
-docker image ls
+docker images
 ```
+![docker images output](https://user-images.githubusercontent.com/55437218/178354034-4ef2feef-3252-464d-8787-6c589e7ebe73.png)
 
 
 So let's test it out ?
@@ -322,7 +324,16 @@ docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
 
 i.e. `docker` sir pls run our docker container named `ride-duration-prediction-service` with version `v1` in interactive mode `it` and delete it afterwards `rm` and yes pls map port `9696` in docker container to `9696` on Docker host
 
-=======
->>>>>>> 49b085ecc37640d2df5f2a1567c24a144ff2d827
+![docker server running](https://user-images.githubusercontent.com/55437218/178354381-6eca3222-e59d-4c87-b1dd-0844048154a5.png)
 
+call it using `test.py`
 
+There we go...
+![image](https://user-images.githubusercontent.com/55437218/178354709-2592e3f7-6f4b-4863-9389-3ada46a339e0.png)
+
+Thus we've successfully dockerised our Flsak API 
+
+![yes dance](https://thumbs.gfycat.com/BlackFineChicken-max-1mb.gif)
+
+See ya later...
+BYE BYE 🤙
