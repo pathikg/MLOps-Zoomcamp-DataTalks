@@ -228,6 +228,7 @@ In next step, we will wrap our web API inside docker container which will act as
 
 Make sure docker service is available at your system. You can checkout my guide on [Setup](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-01-introduction/Setup.md) for Windows machine.
 
+<<<<<<< HEAD
 So lets building Docker `image` with `Dockerfile` 
 
 >A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
@@ -321,5 +322,7 @@ docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
 
 i.e. `docker` sir pls run our docker container named `ride-duration-prediction-service` with version `v1` in interactive mode `it` and delete it afterwards `rm` and yes pls map port `9696` in docker container to `9696` on Docker host
 
+=======
+>>>>>>> 49b085ecc37640d2df5f2a1567c24a144ff2d827
 
 
