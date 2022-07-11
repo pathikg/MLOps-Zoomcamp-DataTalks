@@ -323,19 +323,16 @@ docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
 
 i.e. `docker` sir pls run our docker container named `ride-duration-prediction-service` with version `v1` in interactive mode `it` and delete it afterwards `rm` and yes pls map port `9696` in docker container to `9696` on Docker host
 
-<<<<<<< HEAD
-=======
 ![docker server running](https://user-images.githubusercontent.com/55437218/178354381-6eca3222-e59d-4c87-b1dd-0844048154a5.png)
->>>>>>> c734387bd1af2e45b1fbf3aafdc5d9d964b9ea58
 
-call it using `test.py`
+test it using `test.py`  
 
-There we go...
+There we go...  
 ![image](https://user-images.githubusercontent.com/55437218/178354709-2592e3f7-6f4b-4863-9389-3ada46a339e0.png)
 
-Thus we've successfully dockerised our Flsak API 
+Thus we've successfully dockerised our Flask API 
 
 ![yes dance](https://thumbs.gfycat.com/BlackFineChicken-max-1mb.gif)
 
-See ya later...
+See ya later...  
 BYE BYE 🤙
