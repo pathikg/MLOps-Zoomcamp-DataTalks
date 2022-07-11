@@ -43,8 +43,8 @@ For this tutorial, we will need only two packages, i.e. scikit-learn and flask
 $ pipenv install scikit-learn==1.0.2 flask
 ```
 
-> Note : 1.0.2 version of scikit-learn is obtained by doing `pip list | grep scikit-learn` in the environment where model was trained
-> We can also pass a requirements.txt while doing pipenv install to install those packages in requirements
+> Note : 1.0.2 version of scikit-learn is obtained by doing `pip list | grep scikit-learn` in the environment where model was trained  
+> We can also pass a `requirements.txt` while doing pipenv install to install those packages in requirements
 
 This basically creates `Pipefile.lock` file which stores all the information about installed packages (tracks it automatically)
 
@@ -184,6 +184,8 @@ So install it with
 ```bash
 $ pipenv install gunicorn
 ```
+
+>Note: If you check Pipfile, then you'll see that it has been automatically updated with the new package which is quite useful :)
 
 Remove `if __main__` part from our `app.py`
 and run the gunicorn server by simply doing : 
