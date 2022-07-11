@@ -222,4 +222,104 @@ Well that's why we've
 
 # Dockerizing API 
 
+In next step, we will wrap our web API inside docker container which will act as a isolated environment for our API to run.
+
+![docker api diagram](https://user-images.githubusercontent.com/55437218/178342671-c3836c44-c0cd-4a09-890d-bd76b2aa6ab2.png)
+
+Make sure docker service is available at your system. You can checkout my guide on [Setup](https://github.com/pathikg/MLOps-Zoomcamp-DataTalks/blob/main/week-01-introduction/Setup.md) for Windows machine.
+
+So lets building Docker `image` with `Dockerfile` 
+
+>A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+
+Create a filed named `Dockerfile` to write following instructions which we'll be using to create our docker image
+
+1. Select image to be used 
+
+```Docker
+FROM python:3.9-slim
+```
+
+Here we're telling our docker to build a `Python` image having a tag `3.9-slim`
+
+>I think `3.9-slim` is a lightweight image   
+> (I am a noob so pls correct me if I am wrong)
+
+You can find more about python docker images at [dockerhub](https://hub.docker.com/_/python)
+
+2. Installing Pipenv
+
+We need to make sure that `pip` and `pipenv` is installed in our image so that we can install packages inside our `Pipefile` 
+
+```Docker
+RUN pip install -U pip
+RUN pip install pipenv 
+```
+3. Specifying a working directory
+
+```Docker
+WORKDIR /app
+```
+
+4. Copying Pipefile from local directory to docker image
+
+```Docker
+COPY [ "Pipfile", "Pipfile.lock", "./" ]
+```
+
+5. Installing packages using pipenv
+
+```Docker
+RUN pipenv install --system --deploy
+```
+
+6. Copying model and API into our docker image
+
+```Docker
+COPY [ "app.py", "lin_reg.bin", "./" ]
+```
+
+7. Openup the port
+
+Since we are using port `9696` to communicate with our API
+
+```Docker
+EXPOSE 9696
+```
+
+8. Startup Server
+
+Whenever our docker container is initiated, we want to start the server hence
+
+```Docker
+ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0:9696", "app:app" ]
+```
+
+9. Build our docker image 
+
+As we are done with the instructions, its time to build our docker image from the instructions which we just specified
+
+In terminal,
+```bash
+docker build -t ride-duration-prediction-service:v1 .
+```
+
+You'll see something like this :
+
+
+You can confirm your build by doing :
+```bash
+docker image ls
+```
+
+
+So let's test it out ?
+
+```bash
+docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
+```
+
+i.e. `docker` sir pls run our docker container named `ride-duration-prediction-service` with version `v1` in interactive mode `it` and delete it afterwards `rm` and yes pls map port `9696` in docker container to `9696` on Docker host
+
+
 
