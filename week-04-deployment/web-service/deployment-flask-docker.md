@@ -207,4 +207,19 @@ So we've successfully created
 * Used gunicorn to run our API in production mode
 
 There's a one problem tho... 🤔
-will discuss it later
+
+What if your production environment or the machine on which you're hosting this API does not support the version dependencies which we have ?
+What if production environment has a different configurations that the one which have in local?
+What if you developed this application on windows 10 but some packages are not supported in Ubuntu which is used in production environment 👀
+
+Well that's why we've  
+
+![docker meme](https://media.makeameme.org/created/docker-i-see.jpg)
+
+
+> Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. Using Docker, you can quickly deploy and scale applications into any environment and know your code will run.
+[Source](https://aws.amazon.com/docker/)
+
+# Dockerizing API 
+
+
